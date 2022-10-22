@@ -139,3 +139,36 @@ int main()
 	return 0;
 }
 ```
+
+### 숫자 맞추기 게임
+```c++
+#include <iostream>
+#include <ctime>
+using namespace std;
+
+int main()
+{
+	srand(time(NULL));
+
+	int answer = rand() % 100; // 문제
+	int guess;
+	int tries = 0;
+
+	do {
+		cout << "정답을 추측하여 보세요: ";
+		cin >> guess;
+		tries++;
+
+		if (guess > answer) {
+			cout << "추측한 값이 정답보다 큽니다\n";
+		}
+		else if (guess < answer) {
+			cout << "추측한 값이 정답보다 작습니다\n";
+		}
+	} while (answer != guess);
+
+	cout << "축하합니다. 시도 횟수=" << tries << endl;
+	
+	return 0;
+}
+```
