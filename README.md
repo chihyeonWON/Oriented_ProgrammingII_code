@@ -203,3 +203,57 @@ int main()
 	return 0;
 }
 ```
+
+## 구구단 4단까지 출력하는 프로그램
+
+```c++
+#include <iostream>
+#include <ctime>
+using namespace std;
+
+int main()
+{
+	int table[4][9];
+	int r, c;
+
+	for (r = 0; r <4; r++)
+		for (c = 0; c < 9; c++)
+			table[r][c] = (r + 1) * (c + 1);
+	
+	for (r = 0; r < 4; r++) {
+		for (c = 0; c < 9; c++) {
+			cout << table[r][c] << ", ";
+		}
+		cout << endl;
+	}
+}
+```
+
+## 피보나치 수열을 계산하는 프로그램 작성
+
+```c++ 
+#include <iostream>
+
+using namespace std;
+
+int main()
+{
+	int a = 0, b = 1;
+	int temp;
+	int input;
+
+	cout << "피보나치 몇자리? :";
+	cin >> input;
+
+	cout << a << " " << b << " ";
+
+	for (int i = 2; i < input; i++) {
+		temp = b;
+		b = a + b;
+		a = temp;
+
+		cout << b << " ";
+	}
+	return 0;
+}
+```
