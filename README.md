@@ -3,7 +3,7 @@
 
 ## 1장
 
-## 주사위 게임 프로그램 작성
+### 주사위 게임 프로그램 작성
 
 1. 2개의 주사위를 던져서 주사위의 합을 표시하는 프로그램
 2. 주사위를 던지면 랜덤한 수가 나와야한다.
@@ -25,7 +25,7 @@ int main()
 }
 ```
 
-## 사용자의 나이를 물어보고 10년 후에는 몇 살이 되는지 출력하는 프로그램 작성
+### 사용자의 나이를 물어보고 10년 후에는 몇 살이 되는지 출력하는 프로그램 작성
 ```c++
 #include <iostream>
 using namespace std;
@@ -44,7 +44,7 @@ int main()
 }
 ```
 
-## 1평은 3.3058 이다. 평을 평방미터로 환산하는 프로그램 작성
+### 1평은 3.3058 이다. 평을 평방미터로 환산하는 프로그램 작성
 ```c++
 #include <iostream>
 using namespace std;
@@ -63,7 +63,7 @@ int main()
 }
 ```
 
-## 시, 분, 초로 표현된 시간을 초 단위의 시간으로 변환하는 프로그램 작성
+### 시, 분, 초로 표현된 시간을 초 단위의 시간으로 변환하는 프로그램 작성
 ```c++
 #include <iostream>
 using namespace std;
@@ -82,5 +82,60 @@ int main()
 
 	return 0;
 
+}
+```
+
+### 2장
+
+### 비밀 코드 맞추는 프로그램
+```c++
+#include <iostream>
+using namespace std;
+
+int main()
+{
+	char code;
+	char secret_code = 'h';
+
+	cout << "비밀코드 맞춰보세요: ";
+	cin >> code;
+	if (code > secret_code) {
+		cout << code << "앞에 있음" << endl;
+	}
+	else if (code < secret_code) {
+		cout << code << "뒤에 있음" << endl;
+	}
+	else {
+		cout << "맞췄습니다." << endl;
+	}
+	return 0;
+}
+```
+
+### 세 개의 정수 중에서 큰 수 찾는 프로그램
+
+```c++
+#include <iostream>
+using namespace std;
+
+int main()
+{
+	int a, b, c, largest;
+	cout << "3개의 정수를 입력하세요." << endl;
+	cin >> a;
+	cin >> b;
+	cin >> c;
+	if (a > b && a > c) {
+		largest = a;
+	}
+	else if (b > a && b > c) {
+		largest = b;
+	}
+	else {
+		largest = c;
+	}
+
+	cout << "가장 큰 수는 " << largest << endl;
+	return 0;
 }
 ```
