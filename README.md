@@ -257,3 +257,115 @@ int main()
 	return 0;
 }
 ```
+
+## 3장
+
+### 동전을 100번 던져서 동전의 각면이 나타나는 횟수를 세어 출력하는 프로그램
+
+```c++
+#include <iostream>
+#include <ctime>
+using namespace std;
+
+int flip() {
+	return rand() % 2;
+}
+
+
+int main()
+{
+	srand(time(NULL));
+
+	int front = 0;
+	int rear = 0;
+
+	for (int i = 0; i < 100; i++) {
+		if (flip() == 0) {
+			front++;
+		}
+		else {
+			rear++;
+		}
+	}
+	cout << "동전의 앞면 :" << front << endl;
+	cout << "동전의 뒷면 :" << rear << endl;
+
+	return 0;
+}
+
+```
+
+### 문자열의 문자 빈도를 계산하여 출력하는 프로그램
+
+```c++
+#include <iostream>
+#include <ctime>
+#include <string>
+using namespace std;
+
+
+int main()
+{
+	int counter[256] = { 0 };
+	string s;
+	cout << "문자열을 입력하세요: ";
+	getline(cin, s);
+
+	for (int i = 0; i < s.size(); i++) {
+		counter[s[i]]++;
+	}
+
+	for (int i = 90;  i < 123; i++) {
+		cout << (char)i << ": " << counter[i] << endl;
+	}
+
+}
+```
+
+#### 암호 안에 대문자, 소문자, 숫자가 모두 들어있어야 안전한 패스워드로 간주하는 프로그램
+
+```c++
+#include <iostream>
+#include <ctime>
+#include <string>
+using namespace std;
+
+bool is_UPPER(string s) {
+	for (auto& e : s) {
+		if (isupper(e))
+			return true;
+		return false;
+	}
+}
+
+bool is_Lower(string s)
+{
+	for (auto& e : s)
+		if (islower(e))
+			return true;
+	return false;
+}
+
+bool is_Number(string s)
+{
+	for (auto& e : s)
+		if (48 <= e && e <= 57)
+			return true;
+	return false;
+}
+
+int main()
+{
+	string code;
+	cout << "암호를 입력하시오: "; 
+	cin >> code;
+
+	if (is_UPPER(code) && is_Lower(code) && is_Number(code)) {
+		cout << "안전합니다.";
+	}
+	else {
+		cout << "안전하지 않습니다.";
+	}
+
+}
+```
