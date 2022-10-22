@@ -172,3 +172,34 @@ int main()
 	return 0;
 }
 ```
+
+### 배열에서 최대값을 찾는 프로그램 작성
+
+```c++
+#include <iostream>
+#include <ctime>
+using namespace std;
+
+int main()
+{
+	int list[10];
+	int max;
+
+	for (int& elem : list) {
+		elem = rand() % 100 + 1;
+		cout << elem << " ";
+	}
+
+	cout << endl;
+	max = list[0];
+
+	for(int& elem : list){
+		if (elem > max) {
+			max = elem;
+		}
+	}
+	cout << "배열의 최대값은: " << max << endl;
+ 
+	return 0;
+}
+```
