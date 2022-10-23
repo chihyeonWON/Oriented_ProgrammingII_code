@@ -369,3 +369,74 @@ int main()
 
 }
 ```
+
+## 4장
+
+### 복소수를 나타내는 Complex 클래스를 정의하라
+```c++
+#include <iostream>
+using namespace std;
+
+class Complex {
+public:
+	double r;
+	double i;
+	void print();
+};
+
+void Complex::print() {
+	if (i > 0) {
+		cout << r << "+" << i << "i" << endl;
+	}
+	else if (i < 0)
+		cout << r << "-" << -i << "i" << endl;
+}
+
+int main()
+{
+	Complex c;
+	c.r = 5;
+	c.i = -4;
+	c.print();
+
+	return 0;
+}
+```
+
+### 삼각형을 나타내는 Triangle 클래스를 정의하여 보아라.
+```c++
+#include <iostream>
+using namespace std;
+
+class Triangle {
+private:
+	int b, h;
+public:
+	Triangle(int width, int height) {
+		b = width;
+		h = height;
+	};
+	int area(int a, int b);
+};
+
+int Triangle::area(int a, int b) {
+	int area; 
+	return area = a * b/2;
+
+}
+int main()
+{
+	int width, height;
+
+	cout << "삼각형의 밑변 : ";
+	cin >> width;
+
+	cout << "삼각형의 높이 : ";
+	cin >> height; 
+
+	Triangle tri(width,height);
+
+	cout << "밑변이 " << width << "높이가 " << height << "인 삼각형의 면적: " << tri.area(width, height) << endl;
+	return 0;
+}
+```
