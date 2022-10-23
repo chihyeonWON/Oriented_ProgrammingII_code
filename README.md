@@ -498,3 +498,128 @@ int main()
 	return 0;
 }
 ```
+
+## 6장
+
+### 학생의 이름, 성적을 멤버 변수로 가지는 클래스의 동적 배열을 만들고 성적 순으로 학생들의 정보를 출력하라.
+
+```c++
+#include <iostream>
+#include <string>
+#include <vector>
+#include <algorithm>
+using namespace std;
+
+class Student {
+private:
+	string name; // 이름 
+	double marks; // 성적
+public:
+	Student() {
+		name = "";
+		marks = 0;
+	}
+	Student(string n, double m) {
+		name = n;
+		marks = m;
+	}
+	// 접근자
+	string getName() {
+		return name;
+	}
+	double getMarks() {
+		return marks;
+	}
+	
+	// 설정자
+	void setName(string n) {
+		name = n;
+	}
+	void setMarks(double m) {
+		marks = m;
+	}
+
+	void print() {
+		cout << "이름 :" << name << endl;
+		cout << "학점 :" << marks << endl;
+	}
+};
+
+bool compare(Student& p, Student& q)
+{
+	return p.getMarks() > p.getMarks();
+}
+int main()
+{
+	vector<Student> list;
+	list.push_back(Student("최자영", 4.3));
+	list.push_back(Student("김영희", 3.8));
+	list.push_back(Student("김철수", 3.9));
+
+	sort(list.begin(), list.end(), compare);
+
+	for (auto& e : list) {
+		e.print();
+	}
+
+	return 0;
+}
+```
+
+#### 연락처를 나타내는 Contact클래스에 3개의 Content 객체를 저장하는 동적배열을 정의하고 이름을 받아서 전화번호를 출력하는 프로그램 작성
+```c++
+#include <iostream>
+#include <string>
+#include <vector>
+#include <algorithm>
+using namespace std;
+
+class Contact {
+private:
+	string name; // 이름
+	string tel; // 전화번호
+public:
+	Contact() {
+		name = "";
+		tel = "";
+	}
+	Contact(string n, string t) {
+		name = n;
+		tel = t;
+	}
+	// 접근자
+	string getName() { return name; }
+	string getTel() { return tel; }
+	// 설정자
+	void setName(string n) { name = n; }
+	void setTel(string t) { tel = t; }
+};
+
+int main()
+{
+	string name;
+	string tel;
+
+	vector<Contact> list(3);
+
+	for (auto& e : list) {
+		cout << "이름을 입력하시오:";
+		cin >> name;
+		cout << "전화번호를 입력하시오.";
+		cin >> tel;
+
+		e = Contact(name, tel);
+	}
+
+	cout << "탐색하고 싶은 이름을 입력하시오: ";
+	cin >> name;
+	for (auto& e : list) {
+		if (name == e.getName()) {
+			cout << "전화번호 : " << e.getTel();
+		}
+	}
+}
+
+
+
+```
