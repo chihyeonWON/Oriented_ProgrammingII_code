@@ -467,7 +467,7 @@ public:
 		director = "";
 		rating = 0;
 	}
-	Movie(string t = "", string d = "", int r = 0) {
+	Movie(string t, string d, int r) {
 		title = t;
 		director = d;
 		rating = r;
@@ -491,10 +491,10 @@ void Movie::print() {
 
 int main()
 {
+	Movie m1;
 	Movie movie2("타이타닉", "하이", 1);
 	movie2.print();
 
 	return 0;
 }
-
 ```
