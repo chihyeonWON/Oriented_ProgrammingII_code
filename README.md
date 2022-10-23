@@ -440,3 +440,61 @@ int main()
 	return 0;
 }
 ```
+
+## 5장
+
+### 영화를 나타내는 Movie라는 이름의 클래스를 설계, 제목, 감독, 평점을 나타내는 멤버 변수를 가진다.
+
+1. 멤버 변수는 전용멤버로 한다.
+2. Movie 클래스의 생성자를 중복 정의
+3. 접근자와 생성자를 비롯한 필요한 멤버 함수 정의
+4. main()에서 Movie 객체를 여러개 생성하고 접근자와 설정자를 호출하여 보라
+
+```c++
+
+#include <iostream>
+#include <string>
+using namespace std;
+
+class Movie {
+private:
+	string title;
+	string director;
+	int rating;
+public:
+	Movie() {
+		title = "";
+		director = "";
+		rating = 0;
+	}
+	Movie(string t = "", string d = "", int r = 0) {
+		title = t;
+		director = d;
+		rating = r;
+	}
+	string getTitle() { return title; }
+	string getDirector() { return director; }
+	int getRating() { return rating; }
+
+	void setTitle(string t) { title = t; }
+	void setDirector(string d) { director = d; }
+	void setRating(int r) { rating = r; }
+
+	void print();
+};
+
+void Movie::print() {
+	cout << "영화 제목: " << title << endl;
+	cout << "영화 감독: " << director << endl;
+	cout << "영화 평점: " << rating << endl;
+}
+
+int main()
+{
+	Movie movie2("타이타닉", "하이", 1);
+	movie2.print();
+
+	return 0;
+}
+
+```
