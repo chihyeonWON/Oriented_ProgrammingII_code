@@ -501,6 +501,47 @@ int main()
 
 ## 6장
 
+### 정수입력받고 벡터에 저장한다음 최대값과 최소값을 출력하는 프로그램
+
+```c++
+#include <iostream>
+#include <vector>
+#include <string>
+using namespace std;
+
+int main()
+{
+	int num;
+	int max, min;
+
+	cout << "정수의 개수: ";
+
+	cin >> num;
+
+	vector<int> list(num);
+
+	for (auto& e : list) {
+		cout << "정수를 입력하시오: ";
+
+		cin >> e;
+	}
+
+	max = min = list.front();
+
+	for (auto& e : list) {
+		if (max < e)
+			max = e;
+		if (min > e)
+			min = e;
+
+	}
+
+	cout << "최대값: " << max << endl;
+	cout << "최솟값: " << min << endl;
+}
+```
+
+
 ### 학생의 이름, 성적을 멤버 변수로 가지는 클래스의 동적 배열을 만들고 성적 순으로 학생들의 정보를 출력하라.
 
 ```c++
