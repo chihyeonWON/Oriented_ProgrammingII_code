@@ -541,6 +541,43 @@ int main()
 }
 ```
 
+### 문자열의 개수를 입력받고 받은 개수만큼 문자열을 입력받아서 벡터에 저장하고 벡터에 저장된 문자열을 알파벳 순으로 정렬하여 출력하는 프로그램
+
+```c++
+#include <iostream>
+#include <vector>
+#include <string>
+#include <algorithm>
+using namespace std;
+
+
+bool compare(string& a, string& b) {
+	return a < b;
+}
+
+int main()
+{
+
+	int num;
+	cout << "문자열의 개수: ";
+	cin >> num;
+
+	vector<string> list(num);
+
+	for (auto& e : list) {
+		cout << "문자열을 입력하시오: ";
+		cin >> e;
+	}
+
+	sort(list.begin(), list.end(), compare);
+
+	for (auto& e : list) {
+		cout << e << endl;
+	}
+
+	return 0;
+}
+```
 
 ### 학생의 이름, 성적을 멤버 변수로 가지는 클래스의 동적 배열을 만들고 성적 순으로 학생들의 정보를 출력하라.
 
