@@ -443,6 +443,67 @@ int main()
 
 ## 5장
 
+### Complex 클래스를 작성하고 반환값으로 클래스를 반환하는 add()함수를 추가하여 복소수를 나타내는 Complex 클래스 구현하라.
+
+```c++
+#include <iostream>
+
+using namespace std;
+
+class Complex {
+	double r;
+	double i;
+public:
+	Complex() {
+		r = 0;
+		i = 0;
+	}
+	Complex(double _r, double _i) {
+		r = _r;
+		i = _i;
+	}
+
+	double getR() { return r; }
+	double getI() { return i; }
+	void setR(double r) { this->r = r; }
+	void setI(double i) { this->i = i; }
+
+	void print() {
+		cout << "(" << r;
+		if (i >= 0)
+			cout << " + " << i << "i)";
+		else
+			cout << " - " << -i << "i)";
+	}
+};
+
+Complex add(Complex a, Complex b)
+{
+	Complex result;
+
+	result.setR(a.getR() + b.getR());
+	result.setI(a.getI() + b.getI());
+	
+	return result;
+}
+
+int main()
+{
+	Complex A{ 5, 3 };
+	Complex B{ 3, -4 };
+	Complex result;
+
+	A.print();
+	cout << "+";
+	B.print();
+	cout << "=";
+	add(A, B).print();
+	cout << endl;
+
+	return 0;
+}
+```
+
 ### 영화를 나타내는 Movie라는 이름의 클래스를 설계, 제목, 감독, 평점을 나타내는 멤버 변수를 가진다.
 
 1. 멤버 변수는 전용멤버로 한다.
